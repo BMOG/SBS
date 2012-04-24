@@ -1,0 +1,14 @@
+<% @h = Hash.from_xml(@scenario.definition)%>
+<% provide(:title, @h ["scenario"] ["carte"] ["image_carte"])%>          
+
+<div id="scenario">
+
+  <%= render 'player_zone' %>
+  
+  <%= render 'shared/battlefield_area'%>
+
+  <%= render 'player_options' %>
+  
+  <%= render 'shared/context_control'%>
+  
+</div>    

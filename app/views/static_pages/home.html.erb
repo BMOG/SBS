@@ -1,0 +1,11 @@
+<div class="center hero-unit">
+  <h1>Bienvenue sur <%= t 'sbs' %></h1>
+
+  <h2>
+    PAGE D'ACCUEIL
+  </h2>
+
+  <%= link_to (t :create_user), signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("logo.png", alt: "SBS"), root_path %>

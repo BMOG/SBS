@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1333967171.367775:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%198121851127e9173f47d579c5b6954cI"logical_path;
+FI"SBS_background_10.jpg;
+TI"pathname;
+FI"2$root/app/assets/images/SBS_background_10.jpg;
+FI"content_type;
+FI"image/jpeg;
+FI"
+mtime;
+FI"2008-05-28T11:18:15+02:00;
+FI"length;
+FI"114247;
+FI"digest;
+F"%a0b09aa5113c8d36ec9e27ec31d922aaI"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

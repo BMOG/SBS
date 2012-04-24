@@ -1,0 +1,15 @@
+<% provide(:title, (t 'edit_parameter')) %> 
+<h1><%= t 'edit_parameter' %></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+  <%= form_for(@parameter) do |f| %>
+      <%= render 'shared/error_messages', :object => f.object %>
+
+      <%= f.label t :hsl %>
+      <%= f.text_field :hsl %>
+
+      <%= f.submit "#{t :edit_parameter}", :class => "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

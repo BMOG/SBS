@@ -1,0 +1,23 @@
+<% provide(:title, (t 'signon')) %>
+<h1><%= t 'signon' %></h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, :url => sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label t :password %>
+      <%= f.password_field :password %>
+
+      <%= f.text_field :height %>
+
+      <%= f.text_field :width %>
+
+      <%= f.submit (t 'signon'), :class => "btn btn-large btn-primary", :id => "signon" %>
+    <% end %>
+
+    <p><%= t 'new_user'%> <%= link_to (t 'create_user'), signup_path %></p>
+  </div>
+</div>

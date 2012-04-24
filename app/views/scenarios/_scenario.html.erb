@@ -1,0 +1,12 @@
+<li>
+  <% @map = Hash.from_xml(scenario.definition) ["scenario"] ["carte"] ["image_carte"] %>
+  <%= image_tag "#{@map}.png", size: "200x200" %>
+  <%= scenario.name %>
+  <% if not current_user.nil? and current_user.admin? %>
+    | <%= link_to (t :delete), scenario, method: :delete, confirm: (t :sure) %>
+    | <%= link_to (t :edit), edit_scenario_path(scenario.id) %>
+  <% end %>
+  <% if signed_in? %>
+    | <%= link_to (t :show), scenario %>
+  <% end %>
+</li>

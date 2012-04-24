@@ -1,0 +1,10 @@
+<% provide(:title, (t 'scenarios')) %>
+<h1><%= t 'scenarios' %></h1>
+
+<%= will_paginate %>
+
+<ul class="scenarios">
+  <%= render @scenarios %>
+</ul>
+
+<%= will_paginate %>

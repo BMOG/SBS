@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1333957557.9111109:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%2308a6347f8dd3c149dbb47b43adca9bI"logical_path;
+FI"initiation.png;
+TI"pathname;
+FI"+$root/app/assets/images/initiation.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2010-05-15T11:39:06+02:00;
+FI"length;
+FI"6694329;
+FI"digest;
+F"%e46094165c6d5b2a8cd358b73b571944I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

@@ -1,0 +1,23 @@
+<footer class="footer">
+  <nav>
+    <ul>
+      <li><a href="file:///C:/SBS/Package/Documentation%20html/index.html"><%= t 'rules'%></a></li>
+      <% if not current_user.nil? and current_user.admin? %>
+        <li id="fat-menu-t" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <%= t 'admin' %> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to (t 'edit_parameters'), edit_parameter_path(1) %></li>
+            <li><%= link_to (t 'create_scenario'), new_scenario_path %></li>
+            <li><%= link_to (t 'all_scenarios'), scenarios_path %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to (t 'scenarios'), scenarios_path %></li>
+      <% end %>
+      <li><%= link_to (t 'about'), '/about' %></li>
+      <li><%= link_to (t 'contact'), '/contact' %></li>
+    </ul>
+  </nav>
+</footer>

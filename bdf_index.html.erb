@@ -1,0 +1,49 @@
+<svg version=1.1
+	baseprofile="full"
+
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+
+	width="1000"
+	height="800"
+	viewbox="0, 0, 1500, 1200"
+	preserveAspectRatio="xMinYMin" >
+
+<defs>   
+	<g id="image_base" >
+    
+		<image
+			xlink:href="<%= base_image %>"
+			height="1128"
+			width="1481" />
+		<image
+			xlink:href="<%= unite_bleue %>"
+			height="57"
+			width="57"
+			transform="translate(100, 100)" />
+		<image
+			xlink:href="<%= unite_orange %>"
+			height="57"
+			width="57"
+			style="opacity:0.5"
+			transform="translate(200, 200)" />
+	</g>	   
+</defs>
+
+<g id="layer1"
+	transform="scale(2) translate(0, 0)" >
+    <use xlink:href="#image_base" style="opacity:0.5" />	   
+</g>
+
+<g id="layer2"
+		transform="scale(2) translate(0, 0)" >
+	<defs>
+		<clipPath id="clipping_area">
+			<rect x="100" y="100" width="150" height="120"/>
+		</clipPath>
+	</defs>
+    <use xlink:href="#image_base" style="clip-path: url(#clipping_area)" />	   
+</g>
+
+</svg>

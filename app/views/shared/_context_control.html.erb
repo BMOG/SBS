@@ -1,0 +1,7 @@
+<div id="context_control" class="round">
+  <%= form_for(@context) do |f| %>
+  <%= f.text_field :action %>
+
+  <%= f.submit (t 'edit_context'), :class => "btn btn-large btn-primary", :id => "update_button"%>
+  <% end %> 
+</div>  

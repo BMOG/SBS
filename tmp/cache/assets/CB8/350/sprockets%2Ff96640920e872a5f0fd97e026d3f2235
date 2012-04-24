@@ -1,0 +1,18 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1334236006.1018019:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%96f08ec5fbdcd8642fb896454ef9f834I"logical_path;
+FI"cavalerie.png;
+TI"pathname;
+FI"*$root/app/assets/images/cavalerie.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2012-02-15T12:26:18+01:00;
+FI"length;
+FI"
+13572;
+FI"digest;
+F"%368a174a9e1c2ec39442b05d12cb029eI"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

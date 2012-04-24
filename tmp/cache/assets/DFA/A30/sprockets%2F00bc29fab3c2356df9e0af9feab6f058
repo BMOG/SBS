@@ -1,0 +1,39 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1335282146.198418:@value{	I"length:EFi¯I"digest;
+F"%ad47c9e8dd0a2a056f34d0bb35d94138I"source;
+FI"¯$(document).ready(function(){
+  var p = $("#canvas");
+  var position = p.position();
+
+  $('#signon').click(function(e){
+    $('#session_height').val($(window).height());
+    $('#session_width').val($(window).width());
+  });
+
+  $('#canvas').mousedown(function(e){
+    $('#context_action').val("CLICK " + e.which + " " +
+      (e.pageX - position.left) + " " +
+      (e.pageY - position.top)
+    );
+  
+    $("#update_button").click();
+  });
+
+  $(document).keypress(function(e) {
+    var shift = "FALSE";
+    if ( e.shiftKey ) {
+      shift = "TRUE";
+    }
+
+    $('#context_action').val("KEY " + 
+      shift + " " +
+      (e.which)
+    );
+  
+    $("#update_button").click();
+  });
+  
+})
+;
+;
+FI"_version;
+F"%fcf6b927be2c15941e1eac0f1fdb205b

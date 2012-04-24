@@ -1,0 +1,17 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1333897714.863668:@value{I"
+class:EFI"StaticAsset;
+FI"id;
+F"%93abb2fd0e165e67360cba9d9f47d0a9I"logical_path;
+FI"austerlitz.png;
+TI"pathname;
+FI"+$root/app/assets/images/austerlitz.png;
+FI"content_type;
+FI"image/png;
+FI"
+mtime;
+FI"2010-09-17T18:09:58+02:00;
+FI"length;
+FI"4633270;
+FI"digest;
+F"%573c20d9b566b3c0aaca31e8b1763e01I"_version;
+F"%46dde6621c301f4928e3b34efee9e3b5

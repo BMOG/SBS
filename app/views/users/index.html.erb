@@ -1,0 +1,10 @@
+<% provide(:title, (t 'players')) %>
+<h1><%= t 'players' %></h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>

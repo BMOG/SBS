@@ -1,0 +1,102 @@
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1334937548.6737459:@value{	I"length:EFibI"digest;
+F"%6f361c863a0d2ace91c57b62b2556a64I"source;
+FI"b/* scenario analysis */
+/* line 7, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+.container {
+  width: 710px;
+}
+
+/* line 11, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#scenario {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* line 19, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#scenario .debug_dump {
+  position: absolute;
+  bottom: 200px;
+  right: 10px;
+  width: 20%;
+  height: 30%;
+}
+
+/* line 27, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#player_zone {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 20px;
+}
+
+/* line 35, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+.button_to {
+  float: left;
+  width: 8%;
+}
+
+/* line 40, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#canvas {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  bottom: 0px;
+  width: 80%;
+  border-style: solid;
+  border-color: silver;
+  overflow: hidden;
+}
+
+/* line 51, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#player_options {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  width: 15%;
+  background-color: #fff;
+}
+
+/* line 59, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#player_options * {
+  padding: 5px 5px 5px 5px;
+  vertical-align: middle;
+}
+
+/* line 64, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#player_options input {
+  clear: left;
+}
+
+/* line 67, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#player_options label {
+  width: 90%;
+  display: inline-block;
+}
+
+/* line 72, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#context_control {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 15%;
+  background-color: #fff;
+  /*  visibility: hidden; */
+}
+
+/* line 81, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#context_control input {
+  clear: left;
+}
+
+/* line 84, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
+#context_control label {
+  width: 30%;
+  display: inline-block;
+}
+;
+FI"_version;
+F"%169c48fa1d4c279a5227ccb181e7620d
