@@ -6,8 +6,8 @@
 	xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:ev="http://www.w3.org/2001/xml-events"
 
-    width="<%= @h ["scenario"] ["carte"] ["largeur_image"] %>"
-    height="<%= @h ["scenario"] ["carte"] ["hauteur_image"] %>"
+    width="<%= @grid.picture_width %>"
+    height="<%= @grid.picture_height %>"
     preserveAspectRatio="xMinYMin">
 
     <defs>   
@@ -18,12 +18,12 @@
 	
     <g id="layer1"
       transform="scale(<%= @context.scale %>) 
-      translate(<%= Grid.x_translation(@context) %>, <%= Grid.y_translation(@context) %>)" >
+      translate(<%= "#{@grid.x_translation(@context)}, #{@grid.y_translation(@context)}" %>)" >
       <use xlink:href="#image_base" style="opacity:0.5" />     
     </g>
     <g id="layer2"
       transform="scale(<%= @context.scale %>)
-      translate(<%= Grid.x_translation(@context) %>, <%= Grid.y_translation(@context) %>)" >
+      translate(<%= "#{@grid.x_translation(@context)}, #{@grid.y_translation(@context)}" %>)" >
       <use xlink:href="#image_base" style="clip-path: url(#rectClip);" />     
       <use xlink:href="#units" style="clip-path: url(#rectClip);" />     
     </g>

@@ -12,10 +12,10 @@
 #  current_hex    :integer
 #  action         :string(255)
 #  scale          :float
+#  windows_width  :integer
+#  windows_height :integer
 #  created_at     :datetime
 #  updated_at     :datetime
-#  height         :integer
-#  width          :integer
 #
 
 class Context < ActiveRecord::Base
@@ -23,12 +23,12 @@ class Context < ActiveRecord::Base
   
   # sw: scenario width
   def sw
-    return width - 20
+    return windows_width - 20
   end
 
   # sh: scenario height
   def sh
-    return height - 20
+    return windows_height - 20
   end
   
   # cw: canvas width

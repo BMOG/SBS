@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418160134) do
+ActiveRecord::Schema.define(:version => 20120425084115) do
 
   create_table "contexts", :force => true do |t|
     t.string   "remember_token"
@@ -23,16 +23,28 @@ ActiveRecord::Schema.define(:version => 20120418160134) do
     t.integer  "current_hex"
     t.string   "action"
     t.float    "scale"
+    t.integer  "windows_width"
+    t.integer  "windows_height"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "height"
-    t.integer  "width"
   end
 
   add_index "contexts", ["remember_token"], :name => "index_contexts_on_remember_token", :unique => true
 
+  create_table "grids", :force => true do |t|
+    t.integer  "scenario_id"
+    t.integer  "picture_width"
+    t.integer  "picture_height"
+    t.integer  "maxcol"
+    t.integer  "maxlin"
+    t.integer  "hex_side_length"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "grids", ["scenario_id"], :name => "index_grids_on_scenario_id"
+
   create_table "parameters", :force => true do |t|
-    t.integer  "hsl"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,14 +59,14 @@ ActiveRecord::Schema.define(:version => 20120418160134) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token", :unique => true
 
 end

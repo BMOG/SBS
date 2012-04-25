@@ -17,6 +17,6 @@ namespace :db do
                          password_confirmation: "galileo")
     admin.toggle!(:admin)
     
-    parm = Parameter.create!(hsl: 40)
+    parm = Parameter.create!
   end
 end

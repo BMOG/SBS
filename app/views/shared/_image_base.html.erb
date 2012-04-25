@@ -1,10 +1,9 @@
 <g id="image_base" >
   <image
-    xlink:href="/assets/austerlitz.png"
-    width="<%= @h ["scenario"] ["carte"] ["largeur_image"] %>"
-    height="<%= @h ["scenario"] ["carte"] ["hauteur_image"] %>"
+    xlink:href="<%= "/assets/#{@h ["scenario"]["carte"]["image_carte"]}.png" %>" 
+    width="<%= @grid.picture_width %>"
+    height="<%= @grid.picture_height %>"
   />
-
   <%= render 'shared/current_hex' %>
 
 </g>     

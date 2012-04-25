@@ -40,7 +40,7 @@ module SessionsHelper
   def set_current_scenario
     if not @context.scenario_id == @scenario.id then
       @context.scenario_id = @scenario.id
-      @context.current_hex = Grid.central_hexagon_number
+      @context.current_hex = @grid.central_hexagon_number
       @context.update_attributes(@context.as_json)
     end
   end
@@ -66,8 +66,8 @@ module SessionsHelper
       @context.remember_token = User.find(current_user).remember_token
       @context.user_id = current_user
       @context.scale = 1
-      @context.height = params[:session][:height]
-      @context.width = params[:session][:width]
+      @context.windows_width = params[:session][:width]
+      @context.windows_height = params[:session][:height]
       @context.save
     end
 end

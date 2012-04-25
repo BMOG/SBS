@@ -1,0 +1,10 @@
+
+<% @h ["scenario"]["carte"]["hydrographie"].each do |hg| %>
+  <% if hg ["type_hydrographie"] == "fleuve" then @sw = 7 %>
+  <% if hg ["type_hydrographie"] == "riviere" then @sw = 5 %>
+  <% if hg ["type_hydrographie"] == "ruisseau" then @sw = 3 %>
+  <polyline 
+    points="<%= Grid.get_polyline_on_vertices(hg) %>"
+    style="fill:none;stroke:rgb(20,20,230);stroke-width:<%= @sw %>"
+  />
+<% end %>
