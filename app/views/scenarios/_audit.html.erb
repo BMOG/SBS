@@ -1,10 +1,19 @@
+<g id="audit" >
 
+<% @stroke_color = "rgb(20,20,230)" %>
 <% @h ["scenario"]["carte"]["hydrographie"].each do |hg| %>
-  <% if hg ["type_hydrographie"] == "fleuve" then @sw = 7 %>
-  <% if hg ["type_hydrographie"] == "riviere" then @sw = 5 %>
-  <% if hg ["type_hydrographie"] == "ruisseau" then @sw = 3 %>
-  <polyline 
-    points="<%= Grid.get_polyline_on_vertices(hg) %>"
-    style="fill:none;stroke:rgb(20,20,230);stroke-width:<%= @sw %>"
-  />
-<% end %>
+<%   if hg ["type_hydrographie"] == "fleuve" then %> 
+<%    @stroke_width = 10 %>
+<%   elsif hg ["type_hydrographie"] == "riviere" then %>
+<%       @stroke_width = 6 %>
+<%   elsif hg ["type_hydrographie"] == "ruisseau" then %>
+<%     @stroke_width = 3 %>
+<%     @stroke_dasharray = "stroke-dasharray: 7, 6" %>
+<%   end %> 
+<%   @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
+<% Rails.logger.debug "hydrography: #{hg}"%>
+     <polyline points="<%= @grid.get_polyline_on_edges(hg) %>" style="<%= @style %>" />
+
+<% end %>     
+
+</g>
