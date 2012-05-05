@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1335343516.870772:@value{	I"length:EFiÃI"digest;
-F"%5902e745ce8b29bf44abffd09a9e253eI"source;
-FI"Ã/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336222868.656767:@value{	I"length:EFi ÄI"digest;
+F"%981900d47833f5a048f647349bf1c9eeI"source;
+FI" Ä/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -11417,7 +11417,17 @@ $(document).ready(function(){
   
     $("#update_button").click();
   });
-  
+
+  $('#player_options').click(function(e){
+    var options = "";
+    $("input[type=checkbox]:checked").each( 
+      function() {
+        options = options + $(this).attr("id") + " "; 
+      } 
+    );
+    $('#context_action').val("ENABLE " + options);
+  });    
+
 })
 ;
 // This is a manifest file that'll be compiled into including all the files listed below.
@@ -11429,4 +11439,4 @@ $(document).ready(function(){
 ;
 ;
 FI"_version;
-F"%71a0e322b280a23aeb552e87015b8126
+F"%62a2078a32c1d4a70e3735bf39bf3a36

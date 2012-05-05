@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1335282146.198418:@value{	I"length:EFi¯I"digest;
-F"%ad47c9e8dd0a2a056f34d0bb35d94138I"source;
-FI"¯$(document).ready(function(){
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336222868.647766:@value{	I"length:EFi²I"digest;
+F"%e42d089d2ccb336b743e64f5c0ae06e5I"source;
+FI"²$(document).ready(function(){
   var p = $("#canvas");
   var position = p.position();
 
@@ -31,9 +31,19 @@ FI"¯$(document).ready(function(){
   
     $("#update_button").click();
   });
-  
+
+  $('#player_options').click(function(e){
+    var options = "";
+    $("input[type=checkbox]:checked").each( 
+      function() {
+        options = options + $(this).attr("id") + " "; 
+      } 
+    );
+    $('#context_action').val("ENABLE " + options);
+  });    
+
 })
 ;
 ;
 FI"_version;
-F"%fcf6b927be2c15941e1eac0f1fdb205b
+F"%137f2de9cfe1635aea63c7833e656356

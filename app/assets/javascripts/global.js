@@ -29,5 +29,15 @@ $(document).ready(function(){
   
     $("#update_button").click();
   });
-  
+
+  $('#player_options').click(function(e){
+    var options = "";
+    $("input[type=checkbox]:checked").each( 
+      function() {
+        options = options + $(this).attr("id") + " "; 
+      } 
+    );
+    $('#context_action').val("ENABLE " + options);
+  });    
+
 })
