@@ -25,9 +25,7 @@ class Grid < ActiveRecord::Base
     # provide the beginning of the polyline
     polyline_points = "#{x_vertex(hexagon, vertex)},#{y_vertex(hexagon, vertex)} "
     # for each direction, find the new hexagon and vertex, then provide the next set of coordinates
-logger.debug "hcl: #{hcl}, hexagon: #{hexagon}, vertex: #{vertex}, polyline_points: #{polyline_points}"
     directions.split(',').each do |direction|
-logger.debug "direction + vertex: #{direction}#{vertex}"      
       case direction + vertex
         when "NN", "NONE"   then hexagon = adjacent(hexagon, "NE") 
         when "NENE", "NSE"  then hexagon = adjacent(hexagon, "E") 
@@ -45,7 +43,6 @@ logger.debug "direction + vertex: #{direction}#{vertex}"
         when "NO" then "SO"
       end          
       polyline_points << "#{x_vertex(hexagon, vertex)},#{y_vertex(hexagon, vertex)} "
-logger.debug "hexagon: #{hexagon}, vertex: #{vertex}, polyline_points: #{polyline_points}"
     end
     # and return the string of coordinates
     return polyline_points.chop

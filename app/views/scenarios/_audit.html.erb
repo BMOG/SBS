@@ -5,7 +5,7 @@
 <%   if hg ["type_hydrographie"] == "fleuve" then %> 
 <%    @stroke_width = 10 %>
 <%   elsif hg ["type_hydrographie"] == "riviere" then %>
-<%       @stroke_width = 6 %>
+<%     @stroke_width = 6 %>
 <%   elsif hg ["type_hydrographie"] == "ruisseau" then %>
 <%     @stroke_width = 3 %>
 <%     @stroke_dasharray = "stroke-dasharray: 7, 6" %>
@@ -13,6 +13,17 @@
 <%   @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
 <% Rails.logger.debug "hydrography: #{hg}"%>
      <polyline points="<%= @grid.get_polyline_on_edges(hg) %>" style="<%= @style %>" />
+
+<% end %>     
+
+<% @stroke_color = "rgb(20,230,20)" %>
+<% @h ["scenario"]["carte"]["topographie"].each do |tg| %>
+<%   if tg ["type_topographie"] == "crete" then %> 
+<%     @stroke_width = 5 %>
+<%     @stroke_dasharray = "stroke-dasharray: 7, 6" %>
+<%     @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
+       <polyline points="<%= @grid.get_polyline_on_edges(tg) %>" style="<%= @style %>" />
+<%   end %> 
 
 <% end %>     
 
