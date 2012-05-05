@@ -3,9 +3,11 @@
 <% @stroke_color = "rgb(20,20,230)" %>
 <% @h ["scenario"]["carte"]["hydrographie"].each do |hg| %>
 <%   if hg ["type_hydrographie"] == "fleuve" then %> 
-<%    @stroke_width = 10 %>
+<%     @stroke_width = 10 %>
+<%     @stroke_dasharray = "" %>
 <%   elsif hg ["type_hydrographie"] == "riviere" then %>
 <%     @stroke_width = 6 %>
+<%     @stroke_dasharray = "" %>
 <%   elsif hg ["type_hydrographie"] == "ruisseau" then %>
 <%     @stroke_width = 3 %>
 <%     @stroke_dasharray = "stroke-dasharray: 7, 6" %>
@@ -23,7 +25,34 @@
 <%     @stroke_dasharray = "stroke-dasharray: 7, 6" %>
 <%     @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
        <polyline points="<%= @grid.get_polyline_on_edges(tg) %>" style="<%= @style %>" />
+<%   elsif tg ["type_topographie"] == "ligne-de-partage" then %> 
+<%     @stroke_width = 5 %>
+<%     @stroke_dasharray = "" %>
+<%     @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
+       <polyline points="<%= @grid.get_polyline_across_edges(tg) %>" style="<%= @style %>" />
+<%   elsif tg ["type_topographie"] == "sommet" then %> 
+<%     hcl = tg ["hexagone_depart"].split(';') %>
+<%     hexagon = @grid.hn_from_hcl(hcl.first.to_i, hcl.last.to_i) %>
+       <circle 
+         cx="<%= @grid.x_center(hexagon) %>" 
+         cy="<%= @grid.y_center(hexagon) %>"
+         r="10" fill="<%= @stroke_color %>"
+       />
 <%   end %> 
+
+<% end %>     
+
+<% @stroke_color = "rgb(230,20,20)" %>
+<% @h ["scenario"]["carte"]["voirie"].each do |vg| %>
+<%   if vg ["type_voirie"] == "route" then %> 
+<%     @stroke_width = 7 %>
+<%     @stroke_dasharray = "" %>
+<%   elsif vg ["type_voirie"] == "chemin" then %> 
+<%     @stroke_width = 4 %>
+<%     @stroke_dasharray = "stroke-dasharray: 7, 6" %>
+<%   end %> 
+<%   @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
+     <polyline points="<%= @grid.get_polyline_across_edges(vg) %>" style="<%= @style %>" />
 
 <% end %>     
 

@@ -15,7 +15,31 @@
 
 class Grid < ActiveRecord::Base
 
-  # returns a string of x,y coordinates drawing a polyline along vertices from a xml bloc
+  # returns a string of x,y coordinates drawing a polyline across edges from a xml bloc
+  def get_polyline_across_edges(h)
+    # initialize with the given hash
+    hcl = h ["hexagone_depart"].split(';')
+    hexagon = hn_from_hcl(hcl.first.to_i, hcl.last.to_i) 
+    directions = Service.uncompressed_directions(h ["liste_directions"])
+    # provide the beginning of the polyline
+    polyline_points = "#{x_center(hexagon)},#{y_center(hexagon)} "
+    # for each direction, find the new hexagon then provide the next set of coordinates
+    directions.split(',').each do |direction|
+      case direction
+        when "NE" then hexagon = adjacent(hexagon, "NE") 
+        when "E"  then hexagon = adjacent(hexagon, "E") 
+        when "SE" then hexagon = adjacent(hexagon, "SE") 
+        when "SO" then hexagon = adjacent(hexagon, "SO") 
+        when "O"  then hexagon = adjacent(hexagon, "O") 
+        when "NO" then hexagon = adjacent(hexagon, "NO")
+      end   
+      polyline_points << "#{x_center(hexagon)},#{y_center(hexagon)} "
+    end
+    # and return the string of coordinates
+    return polyline_points.chop
+  end
+
+  # returns a string of x,y coordinates drawing a polyline along edges from a xml bloc
   def get_polyline_on_edges(h)
     # initialize with the given hash
     hcl = h ["hexagone_depart"].split(';')
@@ -224,6 +248,20 @@ class Grid < ActiveRecord::Base
       when "NO" then y_north_west(hexagon)
     end
     return y.floor    
+  end
+
+  # returns the x center coordinate given the hexagon number (hn)
+  # dictionary
+  # - rhl: hexagon (r)ectangle (h)alf (l)ength
+  def x_center(hn)
+    return xp_from_hn(hn) + rhl 
+  end
+
+  # returns the y center coordinate given the hexagon number (hn)
+  # dictionary
+  # - fh: hexagon (f)ull (h)eight
+  def y_center(hn)
+    return yp_from_hn(hn) + fh / 2 
   end
 
   # returns the x north coordinate given the hexagon number (hn)
