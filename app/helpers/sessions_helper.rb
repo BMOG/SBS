@@ -68,6 +68,7 @@ module SessionsHelper
       @context.scale = 1
       @context.windows_width = params[:session][:width]
       @context.windows_height = params[:session][:height]
+      @context.scenario_options = Hash[altitude: false, edges: false, hydrography: false, roads: false, geography: false, units: false].to_xml root: "options" 
       @context.save
     end
 end

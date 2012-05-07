@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336222868.647766:@value{	I"length:EFi²I"digest;
-F"%e42d089d2ccb336b743e64f5c0ae06e5I"source;
-FI"²$(document).ready(function(){
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336298107.2006211:@value{	I"length:EFiÛI"digest;
+F"%b1f8d7fa6ef1262321f3c2bfaf981dd7I"source;
+FI"Û$(document).ready(function(){
   var p = $("#canvas");
   var position = p.position();
 
@@ -40,10 +40,13 @@ FI"²$(document).ready(function(){
       } 
     );
     $('#context_action').val("ENABLE " + options);
+      
+    $("#update_button").click();
+
   });    
 
 })
 ;
 ;
 FI"_version;
-F"%137f2de9cfe1635aea63c7833e656356
+F"%8c9cbcd45e509cd5ed74de11145120ba

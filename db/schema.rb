@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120425084115) do
     t.float    "scale"
     t.integer  "windows_width"
     t.integer  "windows_height"
+    t.text     "scenario_options"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336222868.656767:@value{	I"length:EFi ÄI"digest;
-F"%981900d47833f5a048f647349bf1c9eeI"source;
-FI" Ä/*!
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336298107.241623:@value{	I"length:EFiIÄI"digest;
+F"%93fc0a2bd625e3e3afc3043eb43253f3I"source;
+FI"IÄ/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -11426,6 +11426,9 @@ $(document).ready(function(){
       } 
     );
     $('#context_action').val("ENABLE " + options);
+      
+    $("#update_button").click();
+
   });    
 
 })
@@ -11439,4 +11442,4 @@ $(document).ready(function(){
 ;
 ;
 FI"_version;
-F"%62a2078a32c1d4a70e3735bf39bf3a36
+F"%8b4a5bf802840fa3101ec9ed22d193a7

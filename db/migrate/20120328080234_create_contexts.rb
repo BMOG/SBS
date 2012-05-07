@@ -12,6 +12,7 @@ class CreateContexts < ActiveRecord::Migration
       t.float   :scale
       t.integer :windows_width
       t.integer :windows_height
+      t.text    :scenario_options
    
       t.timestamps
     end

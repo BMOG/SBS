@@ -1,14 +1,14 @@
 <div id="player_options" class="round">
-  <%= check_box_tag(:altitude) %>
+  <%= check_box_tag(:altitude, "1", @scenario_options["options"] ["altitude"]) %>
   <%= label_tag(:altitude, (t 'altitude')) %>
-  <%= check_box_tag(:edges) %>
+  <%= check_box_tag(:edges, "1", @scenario_options["options"] ["edges"]) %>
   <%= label_tag(:edges, (t 'edges')) %> 
-  <%= check_box_tag(:hydrography) %>
+  <%= check_box_tag(:hydrography, "1", @scenario_options["options"] ["hydrography"]) %>
   <%= label_tag(:hydrography, (t 'hydrography')) %>
-  <%= check_box_tag(:roads) %>
+  <%= check_box_tag(:roads, "1", @scenario_options["options"] ["roads"]) %>
   <%= label_tag(:roads, (t 'roads')) %>
-  <%= check_box_tag(:geography) %>
+  <%= check_box_tag(:geography, "1", @scenario_options["options"] ["geography"]) %>
   <%= label_tag(:geography, (t 'geography')) %>
-  <%= check_box_tag(:units) %>
+  <%= check_box_tag(:units, "1", @scenario_options["options"] ["units"]) %>
   <%= label_tag(:units, (t 'units')) %>
 </div>

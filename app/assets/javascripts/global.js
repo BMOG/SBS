@@ -38,6 +38,9 @@ $(document).ready(function(){
       } 
     );
     $('#context_action').val("ENABLE " + options);
+      
+    $("#update_button").click();
+
   });    
 
 })

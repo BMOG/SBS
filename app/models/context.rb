@@ -2,20 +2,21 @@
 #
 # Table name: contexts
 #
-#  id             :integer         not null, primary key
-#  remember_token :string(255)
-#  user_id        :integer
-#  game_id        :integer
-#  scenario_id    :integer
-#  current_turn   :integer
-#  current_unit   :integer
-#  current_hex    :integer
-#  action         :string(255)
-#  scale          :float
-#  windows_width  :integer
-#  windows_height :integer
-#  created_at     :datetime
-#  updated_at     :datetime
+#  id               :integer         not null, primary key
+#  remember_token   :string(255)
+#  user_id          :integer
+#  game_id          :integer
+#  scenario_id      :integer
+#  current_turn     :integer
+#  current_unit     :integer
+#  current_hex      :integer
+#  action           :string(255)
+#  scale            :float
+#  windows_width    :integer
+#  windows_height   :integer
+#  scenario_options :text
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 class Context < ActiveRecord::Base
