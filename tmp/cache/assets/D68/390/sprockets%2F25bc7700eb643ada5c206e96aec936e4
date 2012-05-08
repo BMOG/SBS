@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1334937548.6737459:@value{	I"length:EFibI"digest;
-F"%6f361c863a0d2ace91c57b62b2556a64I"source;
-FI"b/* scenario analysis */
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336386839.053259:@value{	I"length:EFi[I"digest;
+F"%3ec2cc8e3d4e330d3981ad473586a5ceI"source;
+FI"[/* scenario analysis */
 /* line 7, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
 .container {
   width: 710px;
@@ -84,7 +84,7 @@ FI"b/* scenario analysis */
   bottom: 20px;
   width: 15%;
   background-color: #fff;
-  /*  visibility: hidden; */
+  visibility: hidden;
 }
 
 /* line 81, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
@@ -99,4 +99,4 @@ FI"b/* scenario analysis */
 }
 ;
 FI"_version;
-F"%169c48fa1d4c279a5227ccb181e7620d
+F"%be40f84f1d39c0d06f9b695b2b96da75

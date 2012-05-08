@@ -1,6 +1,7 @@
 <% @h = Hash.from_xml(@scenario.definition)%>
+<% @scenario_options = JSON(@context.scenario_options) %>
+
 <% provide(:title, @h ["scenario"] ["carte"] ["image_carte"])%>          
-<% @scenario_options = Hash.from_xml(@context.scenario_options) %>
 
 <div id="scenario">
 

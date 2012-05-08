@@ -1,14 +1,13 @@
 <g id="audit" >
 
-<% if @scenario_options ["options"] ["hydrography"] then %>
+<% if @scenario_options["hydrography"] then %>
 <%   @stroke_color = "rgb(20,20,230)" %>
+<%   @stroke_dasharray = "" %>
 <%   @h ["scenario"]["carte"]["hydrographie"].each do |hg| %>
 <%     if hg ["type_hydrographie"] == "fleuve" then %> 
 <%       @stroke_width = 10 %>
-<%       @stroke_dasharray = "" %>
 <%     elsif hg ["type_hydrographie"] == "riviere" then %>
 <%       @stroke_width = 6 %>
-<%       @stroke_dasharray = "" %>
 <%     elsif hg ["type_hydrographie"] == "ruisseau" then %>
 <%       @stroke_width = 3 %>
 <%       @stroke_dasharray = "stroke-dasharray: 7, 6" %>
@@ -18,7 +17,7 @@
 <%   end %>
 <% end %>     
 
-<% if @scenario_options ["options"] ["edges"] then %>
+<% if @scenario_options["edges"] then %>
 <%   @stroke_color = "rgb(20,230,20)" %>
 <%   @h ["scenario"]["carte"]["topographie"].each do |tg| %>
 <%     if tg ["type_topographie"] == "crete" then %> 
@@ -43,7 +42,7 @@
 <%   end %>
 <% end %>     
 
-<% if @scenario_options ["options"] ["roads"] then %>
+<% if @scenario_options["roads"] then %>
 <%   @stroke_color = "rgb(230,20,20)" %>
 <%   @h ["scenario"]["carte"]["voirie"].each do |vg| %>
 <%     if vg ["type_voirie"] == "route" then %> 

@@ -25,14 +25,7 @@ class Grid < ActiveRecord::Base
     polyline_points = "#{x_center(hexagon)},#{y_center(hexagon)} "
     # for each direction, find the new hexagon then provide the next set of coordinates
     directions.split(',').each do |direction|
-      case direction
-        when "NE" then hexagon = adjacent(hexagon, "NE") 
-        when "E"  then hexagon = adjacent(hexagon, "E") 
-        when "SE" then hexagon = adjacent(hexagon, "SE") 
-        when "SO" then hexagon = adjacent(hexagon, "SO") 
-        when "O"  then hexagon = adjacent(hexagon, "O") 
-        when "NO" then hexagon = adjacent(hexagon, "NO")
-      end   
+      hexagon = adjacent(hexagon, direction) 
       polyline_points << "#{x_center(hexagon)},#{y_center(hexagon)} "
     end
     # and return the string of coordinates

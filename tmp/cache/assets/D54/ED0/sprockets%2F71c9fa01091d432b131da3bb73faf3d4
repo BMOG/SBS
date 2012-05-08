@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1335282446.173575:@value{	I"length:EFiw§I"digest;
-F"%214c60290d1309ae426da2d15f145661I"source;
-FI"w§/*
+o: ActiveSupport::Cache::Entry	:@compressedF:@expires_in0:@created_atf1336386838.972254:@value{	I"length:EFip§I"digest;
+F"%0ea40432a3ec7b1f2a7c5f8c03bf73efI"source;
+FI"p§/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -4675,7 +4675,7 @@ input, textarea, select, .uneditable-input {
   bottom: 20px;
   width: 15%;
   background-color: #fff;
-  /*  visibility: hidden; */
+  visibility: hidden;
 }
 
 /* line 81, C:/ruby193/projects/SBS/app/assets/stylesheets/sessions.css.scss */
@@ -4690,4 +4690,4 @@ input, textarea, select, .uneditable-input {
 }
 ;
 FI"_version;
-F"%e39c9cee4f2f0b38728083992ec7b5e7
+F"%a97c3b9f0dddfd83fc6d3788882537ec
