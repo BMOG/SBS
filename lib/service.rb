@@ -19,4 +19,20 @@ module Service
     return directions.chop
   end 
 
-end
+  # returns an uncompressed list of hexagons from the corresponding xml token 
+  def Service.uncompressed_hexagons(s) 
+    hexagons = ""
+    s.split(',').each do |meta_hexagon|
+      if meta_hexagon.size == 5 then
+        hexagons << "#{meta_hexagon},"  
+      else
+        for i in meta_hexagon.split('-').first.split(';').first.to_i..meta_hexagon.split('-').last.split(';').first.to_i do
+          i.to_s.size == 1 ? column = "0#{i.to_s}" : column = i.to_s 
+          hexagons << "#{column};#{meta_hexagon.split('-').last.split(';').last}," 
+        end
+      end
+    end
+    return hexagons.chop
+  end 
+
+end 

@@ -25,7 +25,7 @@ class Grid < ActiveRecord::Base
     polyline_points = "#{x_center(hexagon)},#{y_center(hexagon)} "
     # for each direction, find the new hexagon then provide the next set of coordinates
     directions.split(',').each do |direction|
-      hexagon = adjacent(hexagon, direction) 
+      hexagon = adjacent(hexagon, direction.swapcase.intern) 
       polyline_points << "#{x_center(hexagon)},#{y_center(hexagon)} "
     end
     # and return the string of coordinates
@@ -40,16 +40,16 @@ class Grid < ActiveRecord::Base
     vertex = h ["angle_depart"]
     directions = Service.uncompressed_directions(h ["liste_directions"])
     # provide the beginning of the polyline
-    polyline_points = "#{x_vertex(hexagon, vertex)},#{y_vertex(hexagon, vertex)} "
+    polyline_points = "#{x_vertex(hexagon, vertex.swapcase.intern)},#{y_vertex(hexagon, vertex.swapcase.intern)} "
     # for each direction, find the new hexagon and vertex, then provide the next set of coordinates
     directions.split(',').each do |direction|
       case direction + vertex
-        when "NN", "NONE"   then hexagon = adjacent(hexagon, "NE") 
-        when "NENE", "NSE"  then hexagon = adjacent(hexagon, "E") 
-        when "NES", "SESE"  then hexagon = adjacent(hexagon, "SE") 
-        when "SS", "SESO"   then hexagon = adjacent(hexagon, "SO") 
-        when "SNO", "SOSO"  then hexagon = adjacent(hexagon, "O") 
-        when "SON", "NONO"  then hexagon = adjacent(hexagon, "NO")
+        when "NN", "NONE"   then hexagon = adjacent(hexagon, :ne) 
+        when "NENE", "NSE"  then hexagon = adjacent(hexagon, :e) 
+        when "NES", "SESE"  then hexagon = adjacent(hexagon, :se) 
+        when "SS", "SESO"   then hexagon = adjacent(hexagon, :so) 
+        when "SNO", "SOSO"  then hexagon = adjacent(hexagon, :o) 
+        when "SON", "NONO"  then hexagon = adjacent(hexagon, :no)
       end   
       vertex = case direction
         when "N"  then "NO"       
@@ -59,7 +59,7 @@ class Grid < ActiveRecord::Base
         when "SO" then "S"      
         when "NO" then "SO"
       end          
-      polyline_points << "#{x_vertex(hexagon, vertex)},#{y_vertex(hexagon, vertex)} "
+      polyline_points << "#{x_vertex(hexagon, vertex.swapcase.intern)},#{y_vertex(hexagon, vertex.swapcase.intern)} "
     end
     # and return the string of coordinates
     return polyline_points.chop
@@ -72,20 +72,20 @@ class Grid < ActiveRecord::Base
     hexcol = hc_from_hn(hexagon)
     hexlin = hl_from_hn(hexagon)
     case direction
-      when "NE"
+      when :ne
         hexcol += 1 if hexlin%2 != 0
         hexlin -= 1
-      when "E"
+      when :e
         hexcol += 1
-      when "SE"
+      when :se
         hexcol += 1 if hexlin%2 != 0
         hexlin += 1
-      when "SO"
+      when :so
         hexcol -= 1 if hexlin%2 == 0
         hexlin += 1
-      when "O"
+      when :o
         hexcol -= 1
-      when "NO"
+      when :no
         hexcol -= 1 if hexlin%2 == 0
         hexlin -= 1
     end
@@ -216,33 +216,6 @@ class Grid < ActiveRecord::Base
     return hl_from_hn(hn) * (th + hex_side_length)
   end
 
-# CANDIDAT A UN TRASFERT DANS LA CLASSE hEXAGONE
-  # returns the x display coordinate of a given vertex of the given hexagon
-  def x_vertex(hexagon, vertex)
-    x = case vertex
-      when "N"  then x_north(hexagon)
-      when "NE" then x_north_east(hexagon)
-      when "SE" then x_south_east(hexagon)
-      when "S"  then x_south(hexagon)
-      when "SO" then x_south_west(hexagon)
-      when "NO" then x_north_west(hexagon)
-    end
-    return x.floor   
-  end
-
-  # returns the y display coordinate of a given vertex of the given hexagon
-  def y_vertex(hexagon, vertex)
-    y = case vertex
-      when "N"  then y_north(hexagon)
-      when "NE" then y_north_east(hexagon)
-      when "SE" then y_south_east(hexagon)
-      when "S"  then y_south(hexagon)
-      when "SO" then y_south_west(hexagon)
-      when "NO" then y_north_west(hexagon)
-    end
-    return y.floor    
-  end
-
   # returns the x center coordinate given the hexagon number (hn)
   # dictionary
   # - rhl: hexagon (r)ectangle (h)alf (l)ength
@@ -257,84 +230,30 @@ class Grid < ActiveRecord::Base
     return yp_from_hn(hn) + fh / 2 
   end
 
-  # returns the x north coordinate given the hexagon number (hn)
+  # returns the x vertex coordinate given the hexagon number (hn) and the vertex
   # dictionary
   # - rhl: hexagon (r)ectangle (h)alf (l)ength
-  def x_north(hn)
-    return xp_from_hn(hn) + rhl 
-  end
-
-  # returns the y north coordinate given the hexagon number (hn)
-  def y_north(hn)
-    return yp_from_hn(hn)
-  end
-
-  # returns the x north_east coordinate given the hexagon number (hn)
-  # dictionary
   # - fw: hexagon (f)ull (w)idth
-  def x_north_east(hn)
-    return xp_from_hn(hn) + fw 
+  def x_vertex(hn, v)
+    case v
+      when :n, :s   then return xp_from_hn(hn) + rhl
+      when :ne, :se then return xp_from_hn(hn) + fw 
+      else               return xp_from_hn(hn) 
+    end                
   end
-
-  # returns the y north east coordinate given the hexagon number (hn)
+  
+  # returns the y vertex coordinate given the hexagon number (hn) and the vertex
   # dictionary
   # - th: hexagon (t)riangle (h)eight
-  def y_north_east(hn)
-    return yp_from_hn(hn) + th
-  end
-
-  # returns the x south_east coordinate given the hexagon number (hn)
-  # dictionary
-  # - fw: hexagon (f)ull (w)idth
-  def x_south_east(hn)
-    return xp_from_hn(hn) + fw 
-  end
-
-  # returns the y south east coordinate given the hexagon number (hn)
-  # dictionary
-  # - th: hexagon (t)riangle (h)eight
-  # - hex_side_length
-  def y_south_east(hn)
-    return yp_from_hn(hn) + th + hex_side_length
-  end
-
-  # returns the x south coordinate given the hexagon number (hn)
-  # dictionary
-  # - rhl: hexagon (r)ectangle (h)alf (l)ength
-  def x_south(hn)
-    return xp_from_hn(hn) + rhl 
-  end
-
-  # returns the y north coordinate given the hexagon number (hn)
-  # dictionary
   # - fh: hexagon (f)ull (h)eight
-  def y_south(hn)
-    return yp_from_hn(hn) + fh
-  end
-
-  # returns the x north_west coordinate given the hexagon number (hn)
-  def x_north_west(hn)
-    return xp_from_hn(hn) 
-  end
-
-  # returns the y north west coordinate given the hexagon number (hn)
-  # dictionary
-  # - th: hexagon (t)riangle (h)eight
-  def y_north_west(hn)
-    return yp_from_hn(hn) + th
-  end
-
-  # returns the x south_west coordinate given the hexagon number (hn)
-  def x_south_west(hn)
-    return xp_from_hn(hn) 
-  end
-
-  # returns the y south west coordinate given the hexagon number (hn)
-  # dictionary
-  # - th: hexagon (t)riangle (h)eight
   # - hex_side_length
-  def y_south_west(hn)
-    return yp_from_hn(hn) + th + hex_side_length
+  def y_vertex(hn, v)
+    case v
+      when :n       then return yp_from_hn(hn)
+      when :ne, :no then return yp_from_hn(hn) + th
+      when :s       then return yp_from_hn(hn) + fh
+      else               return yp_from_hn(hn) + th + hex_side_length 
+    end                
   end
 
   # returns the hexagon column (hc) given the hexagon number (hn)

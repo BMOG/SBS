@@ -1,5 +1,33 @@
 <g id="audit" >
 
+<% if @scenario_options["geography"] then %>
+<%   @stroke_width = 10 %>
+<%   @h ["scenario"]["carte"]["geographie"].each do |gg| %>
+<%     if gg ["type_geoographie"] == "terrain_difficile" then %>
+<%     elsif gg ["type_geographie"] == "bois" then %>
+<%       @stroke_color = "rgb(20,180,20)" %>
+<%     elsif gg ["type_geographie"] == "verger" then %>
+<%     elsif gg ["type_geographie"] == "eau" then %>
+<%       @stroke_color = "rgb(20,20,180)" %>
+<%     elsif gg ["type_geographie"] == "village" then %>
+<%       @stroke_color = "rgb(180,20,20)" %>
+<%     elsif gg ["type_geographie"] == "marais" then %>
+<%       @stroke_color = "rgb(20,180,180)" %>
+<%     end %>
+<%     @style = "fill:none;stroke:#{@stroke_color};stroke-width:#{@stroke_width};#{@stroke_dasharray}" %>
+<%     gg ["liste_hexagones"].each do |lh| %>
+<%       Service.uncompressed_hexagons(lh).split(',').each do |h| %> 
+<%         @hex = @grid.hn_from_hcl(h.split(';').first.to_i, h.split(';').last.to_i) %> 
+           <polyline points="
+             <%= @grid.x_vertex(@hex, :no) %>,<%= @grid.y_vertex(@hex, :no) %>
+             <%= @grid.x_vertex(@hex, :n) %>,<%= @grid.y_vertex(@hex, :n) %>"
+             style=<%= @style %>"
+           />    
+<%       end %>             
+<%     end %>
+<%   end %>
+<% end %>     
+
 <% if @scenario_options["hydrography"] then %>
 <%   @stroke_color = "rgb(20,20,230)" %>
 <%   @stroke_dasharray = "" %>
