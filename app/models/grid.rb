@@ -102,6 +102,11 @@ class Grid < ActiveRecord::Base
     return hn_from_hcl(((maxcol - 1) / 2).floor, (maxlin / 2).floor)
   end 
 
+  # returns the highest hexagon number of the grid
+  def highest_hexagon_number
+    return hn_from_hcl(maxcol - 1, maxlin - 1)
+  end 
+
   # returns the x translation from the context
   # dictionary
   # xcch: x coordinate of the canvas central hexagon

@@ -11,7 +11,5 @@ class CreateHexagons < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :scenario_id, :number, unique: true   
-
   end
 end

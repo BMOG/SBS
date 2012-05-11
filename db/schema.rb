@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120425084115) do
+ActiveRecord::Schema.define(:version => 20120508103519) do
 
   create_table "contexts", :force => true do |t|
     t.string   "remember_token"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20120425084115) do
   end
 
   add_index "grids", ["scenario_id"], :name => "index_grids_on_scenario_id"
+
+  create_table "hexagons", :force => true do |t|
+    t.integer  "scenario_id"
+    t.integer  "number"
+    t.string   "geography"
+    t.integer  "altitude"
+    t.boolean  "summit"
+    t.text     "sides"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "parameters", :force => true do |t|
     t.datetime "created_at"
