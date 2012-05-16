@@ -3,9 +3,9 @@ module Service
 # provide stand alone services: *must* not have any model, view or controller dependencies 
   
   # returns an uncompressed list of directions from the corresponding xml token 
-  def Service.uncompressed_directions(s) 
+  def Service.uncompressed_directions(p_string) 
     directions = ""
-    s.split(',').each do |meta_direction|
+    p_string.split(',').each do |meta_direction|
       if meta_direction.byteslice(0) == '(' then
         Integer(meta_direction.byteslice(-1)).times do
           meta_direction [1, meta_direction.rindex(')') - 1].split(';').each do |direction|
@@ -20,9 +20,9 @@ module Service
   end 
 
   # returns an uncompressed list of hexagons from the corresponding xml token 
-  def Service.uncompressed_hexagons(s) 
+  def Service.uncompressed_hexagons(p_string) 
     hexagons = ""
-    s.split(',').each do |meta_hexagon|
+    p_string.split(',').each do |meta_hexagon|
       if meta_hexagon.size == 5 then
         hexagons << "#{meta_hexagon},"  
       else

@@ -1,4 +1,24 @@
 <g id="audit" >
+  
+<% if @scenario_options["altitude"] then %>
+<%   a = Array.new ["", "", "", ""] %>
+<%   @hexagons.each do |hexagon| %>
+<%     a[hexagon.altitude] << "#{hexagon.number.to_s}," %>
+<%   end %>
+<% Rails.logger.debug "a: #{a}"%>
+<%   for i in 0..3  %>
+<%     case i %>
+<%      when 0 then color = "rgb(100,200,100) "%>
+<%      when 1 then color = "rgb(230,250,200) "%>
+<%      when 2 then color = "rgb(220,200,160) "%>
+<%      when 3 then color = "rgb(160,100,060) "%>
+<%     end %>
+<%     @grid.build_polygons_definition(a[i].chop).each do |polygon| %>
+         <polygon points="<%= @grid.polygons_points(polygon) %>"
+         style="fill:<%= color %>;stroke:none"/>
+<%     end %>  
+<%   end %>     
+<% end %>     
 
 <% if @scenario_options["geography"] then %>
 <%   @stroke_width = 10 %>

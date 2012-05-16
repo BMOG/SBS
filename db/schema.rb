@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20120508103519) do
   add_index "grids", ["scenario_id"], :name => "index_grids_on_scenario_id"
 
   create_table "hexagons", :force => true do |t|
-    t.integer  "scenario_id"
+    t.integer  "grid_id"
     t.integer  "number"
     t.string   "geography"
     t.integer  "altitude"

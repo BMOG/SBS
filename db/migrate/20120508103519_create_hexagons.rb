@@ -1,7 +1,7 @@
 class CreateHexagons < ActiveRecord::Migration
   def change
     create_table :hexagons do |t|
-      t.integer :scenario_id
+      t.integer :grid_id
       t.integer :number
       t.string  :geography
       t.integer :altitude
